@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f6f2">
+    <meta name="description" content="Discover neighborhood shops, groceries, and restaurants with ZedCart.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>ZedCart — good things, close by</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#" aria-label="ZedCart home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
+          <span>ZedCart</span>
+        </a>
+        <div class="delivery-location">
+          <span class="location-icon" aria-hidden="true">⌖</span>
+          <span class="location-copy"><small>Browse businesses in</small><select id="city-select" aria-label="Filter businesses by city"><option value="All">All Zambia</option><option value="Lusaka">Lusaka</option><option value="Ndola">Ndola</option><option value="Kitwe">Kitwe</option><option value="Livingstone">Livingstone</option><option value="Chipata">Chipata</option><option value="Kabwe">Kabwe</option><option value="Solwezi">Solwezi</option><option value="Kasama">Kasama</option><option value="Mongu">Mongu</option><option value="Mansa">Mansa</option><option value="Chinsali">Chinsali</option><option value="Choma">Choma</option></select></span>
+        </div>
+        <button class="auth-button" type="button" data-action="open-auth">Log in</button>
+        <button class="cart-button" type="button" data-action="open-cart" aria-label="Open cart, 0 items">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6M10 20h.01M18 20h.01"/></svg>
+          <span>Cart</span><span class="cart-count" aria-live="polite">0</span>
+        </button>
+      </div>
+    </header>
+
+    <div id="connection-status" class="connection-status" role="status" aria-live="polite" hidden>
+      <span class="connection-status-icon" aria-hidden="true">!</span>
+      <span><strong>You're offline.</strong> Saved cart and sample listings remain available on this device. Live account, location, and delivery services need a connection.</span>
+    </div>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow"><span class="sparkle" aria-hidden="true">✳</span> GOOD THINGS, ALL ACROSS ZAMBIA</p>
+          <h1 id="hero-title">Good things,<br><span>close by.</span></h1>
+          <p class="hero-description">Your favorite local shops, right around the corner.<br>Discover neighborhood favorites across Zambia.</p>
+          <form class="search-form" role="search" id="search-form">
+            <label class="visually-hidden" for="search-input">Search shops and products</label>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+            <input id="search-input" type="search" placeholder="Try “nshima” or “groceries”" autocomplete="off">
+            <button type="submit">Search</button>
+          </form>
+          <p class="delivery-prompt"><span aria-hidden="true">✦</span> Free delivery on orders over K250</p>
+          <button id="install-app" class="install-app-button" type="button" data-action="install-app" hidden>Install ZedCart</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <div class="hero-bag"><span>🌿</span><span>🥖</span><span>🍊</span></div>
+          <div class="hero-sticker">GOOD<br>THINGS<br>INSIDE <span>↘</span></div>
+          <div class="hero-leaf leaf-one">✳</div><div class="hero-leaf leaf-two">✳</div>
+        </div>
+      </section>
+
+      <section class="content-section categories-section" aria-labelledby="category-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">A LITTLE BIT OF EVERYTHING</p><h2 id="category-title">What are you in the mood for?</h2></div>
+        </div>
+        <div class="category-list" role="group" aria-label="Filter by category">
+          <button class="category-chip active" type="button" data-category="All"><span class="category-icon all-icon" aria-hidden="true">✳</span><span>Everything</span></button>
+          <button class="category-chip" type="button" data-category="Groceries"><span class="category-icon" aria-hidden="true">🥑</span><span>Groceries</span></button>
+          <button class="category-chip" type="button" data-category="Restaurants"><span class="category-icon" aria-hidden="true">🍜</span><span>Restaurants</span></button>
+          <button class="category-chip" type="button" data-category="Coffee"><span class="category-icon" aria-hidden="true">☕</span><span>Coffee & treats</span></button>
+          <button class="category-chip" type="button" data-category="Wellness"><span class="category-icon" aria-hidden="true">🌼</span><span>Wellness</span></button>
+          <button class="category-chip" type="button" data-category="Shops"><span class="category-icon" aria-hidden="true">🛍️</span><span>Local shops</span></button>
+          <button class="category-chip" type="button" data-category="Filling stations"><span class="category-icon" aria-hidden="true">⛽</span><span>Filling stations</span></button>
+        </div>
+      </section>
+
+      <section class="content-section merchants-section" aria-labelledby="merchant-title">
+        <div class="section-heading merchant-heading">
+          <div><p class="eyebrow">PICKED FOR YOUR NEIGHBORHOOD</p><h2 id="merchant-title">Around the corner</h2></div>
+          <span class="result-label" id="result-label" aria-live="polite"></span>
+        </div>
+        <div class="merchant-grid" id="merchant-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">🔎</span><h3>No nearby matches just yet</h3>
+          <p>Try another search or browse all neighborhood favorites.</p>
+          <button type="button" data-action="clear-filters" class="text-button">Show everything <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+      <aside class="demo-note"><span aria-hidden="true">ⓘ</span> Sample businesses from all ten provinces. Availability and delivery are illustrative; no live services are connected.</aside>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span><span>ZedCart</span></a>
+      <p>Made for the places that make a neighborhood.</p>
+      <span>© 2026 ZedCart · Zambia</span>
+      <span>Engineered by Crystal Technologies · Engineer Jonathan Mwanza</span>
+    </footer>
+
+    <dialog class="modal merchant-modal" id="merchant-modal" aria-labelledby="modal-title">
+      <div class="modal-topbar"><span class="modal-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span> ZedCart</span><button class="icon-button" type="button" data-action="close-dialog" aria-label="Close shop details">×</button></div>
+      <div id="merchant-detail"></div>
+    </dialog>
+    <dialog class="modal cart-modal" id="cart-modal" aria-labelledby="cart-title">
+      <div class="modal-topbar"><span class="modal-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span> ZedCart</span><button class="icon-button" type="button" data-action="close-dialog" aria-label="Close cart">×</button></div>
+      <div id="cart-content"></div>
+    </dialog>
+    <dialog class="modal auth-modal" id="auth-modal" aria-labelledby="auth-title">
+      <div class="modal-topbar"><span class="modal-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span> ZedCart accounts</span><button class="icon-button" type="button" data-action="close-dialog" aria-label="Close sign in">×</button></div>
+      <div id="auth-content"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
