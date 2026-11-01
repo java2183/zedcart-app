@@ -1,0 +1,22 @@
+{
+  "id": "./",
+  "name": "ZedCart — Zambia's neighborhood marketplace",
+  "short_name": "ZedCart",
+  "description": "Discover and shop neighborhood businesses across Zambia.",
+  "lang": "en-ZM",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f6f6f2",
+  "theme_color": "#f6f6f2",
+  "categories": ["shopping", "food"],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
